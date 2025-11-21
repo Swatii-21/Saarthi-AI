@@ -1,0 +1,107 @@
+{
+  "app": {
+    "name": "SaarthiAI",
+    "tagline": "Your offline AI companion for emergencies and awareness"
+  },
+  "splash": {
+    "loading": "Loading...",
+    "welcome": "Welcome to SaarthiAI"
+  },
+  "onboarding": {
+    "step1": {
+      "title": "Welcome to SaarthiAI",
+      "description": "Your trusted offline companion for emergencies and awareness"
+    },
+    "step2": {
+      "title": "Works Offline",
+      "description": "Get help anytime, anywhere, even without internet"
+    },
+    "step3": {
+      "title": "Multilingual Support",
+      "description": "Available in 10 languages for everyone"
+    },
+    "next": "Next",
+    "skip": "Skip",
+    "getStarted": "Get Started"
+  },
+  "language": {
+    "select": "Select Language",
+    "english": "English",
+    "hindi": "Hindi",
+    "marathi": "Marathi",
+    "telugu": "Telugu",
+    "tamil": "Tamil",
+    "kannada": "Kannada",
+    "gujarati": "Gujarati",
+    "bengali": "Bengali",
+    "punjabi": "Punjabi",
+    "malayalam": "Malayalam"
+  },
+  "home": {
+    "title": "How can we help you?",
+    "subtitle": "Choose a category",
+    "health": "Health",
+    "firstAid": "First Aid",
+    "fireSafety": "Fire Safety",
+    "disasterHelp": "Disaster Help",
+    "awareness": "Awareness",
+    "settings": "Settings",
+    "syncStatus": "Sync Status"
+  },
+  "category": {
+    "selectTopic": "Select a topic",
+    "speak": "Speak",
+    "type": "Type",
+    "or": "or",
+    "speakButton": "Tap to speak",
+    "typePlaceholder": "Type your question here..."
+  },
+  "voice": {
+    "listening": "Listening...",
+    "speakNow": "Speak now",
+    "processing": "Processing...",
+    "stop": "Stop",
+    "tryAgain": "Try Again"
+  },
+  "result": {
+    "title": "Here's what you need to know",
+    "step": "Step",
+    "playAudio": "Play Audio",
+    "stopAudio": "Stop Audio",
+    "back": "Back",
+    "nextStep": "Next Step",
+    "previousStep": "Previous Step"
+  },
+  "settings": {
+    "title": "Settings",
+    "accessibility": "Accessibility",
+    "fontSize": "Font Size",
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large",
+    "extraLarge": "Extra Large",
+    "highContrast": "High Contrast Mode",
+    "voiceOnly": "Voice Only Mode",
+    "language": "Language",
+    "back": "Back"
+  },
+  "sync": {
+    "title": "Offline Sync Status",
+    "status": "Status",
+    "synced": "Synced",
+    "syncing": "Syncing...",
+    "lastSync": "Last Sync",
+    "never": "Never",
+    "syncNow": "Sync Now",
+    "back": "Back"
+  },
+  "common": {
+    "back": "Back",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close"
+  }
+}
+

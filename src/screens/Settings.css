@@ -1,0 +1,136 @@
+.settings {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-green) 100%);
+}
+
+.settings-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+  min-height: 48px;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.back-button:focus {
+  outline: 3px solid var(--text-light);
+  outline-offset: 2px;
+}
+
+.settings-title {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.settings-section {
+  background: var(--clean-white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+.settings-high-contrast .settings-section {
+  border: 2px solid var(--text-dark);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-dark);
+}
+
+.setting-item {
+  margin-bottom: 2rem;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.setting-label {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.font-size-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.font-size-option {
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  background: var(--clean-white);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 48px;
+  color: var(--text-dark);
+}
+
+.font-size-option:hover {
+  border-color: var(--sky-blue);
+  background: rgba(135, 206, 235, 0.1);
+}
+
+.font-size-option.active {
+  background: var(--sky-blue);
+  color: var(--text-light);
+  border-color: var(--sky-blue);
+}
+
+.font-size-option:focus {
+  outline: 3px solid var(--sky-blue);
+  outline-offset: 2px;
+}
+
+/* Font sizes */
+.settings-font-small .settings-title {
+  font-size: 1.75rem;
+}
+
+.settings-font-medium .settings-title {
+  font-size: 2rem;
+}
+
+.settings-font-large .settings-title {
+  font-size: 2.5rem;
+}
+
+.settings-font-extraLarge .settings-title {
+  font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  .font-size-options {
+    grid-template-columns: 1fr;
+  }
+}
+

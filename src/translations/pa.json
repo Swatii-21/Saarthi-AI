@@ -1,0 +1,107 @@
+{
+  "app": {
+    "name": "ਸਾਰਥੀAI",
+    "tagline": "ਐਮਰਜੈਂਸੀ ਅਤੇ ਜਾਗਰੂਕਤਾ ਲਈ ਤੁਹਾਡਾ ਆਫਲਾਈਨ AI ਸਾਥੀ"
+  },
+  "splash": {
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "welcome": "ਸਾਰਥੀAI ਵਿੱਚ ਸਵਾਗਤ ਹੈ"
+  },
+  "onboarding": {
+    "step1": {
+      "title": "ਸਾਰਥੀAI ਵਿੱਚ ਸਵਾਗਤ ਹੈ",
+      "description": "ਐਮਰਜੈਂਸੀ ਅਤੇ ਜਾਗਰੂਕਤਾ ਲਈ ਤੁਹਾਡਾ ਭਰੋਸੇਮੰਦ ਆਫਲਾਈਨ ਸਾਥੀ"
+    },
+    "step2": {
+      "title": "ਆਫਲਾਈਨ ਕੰਮ ਕਰਦਾ ਹੈ",
+      "description": "ਇੰਟਰਨੈੱਟ ਬਿਨਾਂ ਵੀ ਕਿਸੇ ਵੀ ਸਮੇਂ, ਕਿਤੇ ਵੀ ਮਦਦ ਪ੍ਰਾਪਤ ਕਰੋ"
+    },
+    "step3": {
+      "title": "ਬਹੁਭਾਸ਼ੀ ਸਹਾਇਤਾ",
+      "description": "ਸਭ ਲਈ 10 ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਉਪਲਬਧ"
+    },
+    "next": "ਅਗਲਾ",
+    "skip": "ਛੱਡੋ",
+    "getStarted": "ਸ਼ੁਰੂ ਕਰੋ"
+  },
+  "language": {
+    "select": "ਭਾਸ਼ਾ ਚੁਣੋ",
+    "english": "ਅੰਗਰੇਜ਼ੀ",
+    "hindi": "ਹਿੰਦੀ",
+    "marathi": "ਮਰਾਠੀ",
+    "telugu": "ਤੇਲਗੂ",
+    "tamil": "ਤਮਿਲ",
+    "kannada": "ਕੰਨੜ",
+    "gujarati": "ਗੁਜਰਾਤੀ",
+    "bengali": "ਬੰਗਾਲੀ",
+    "punjabi": "ਪੰਜਾਬੀ",
+    "malayalam": "ਮਲਿਆਲਮ"
+  },
+  "home": {
+    "title": "ਅਸੀਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੇ ਹਾਂ?",
+    "subtitle": "ਇੱਕ ਸ਼੍ਰੇਣੀ ਚੁਣੋ",
+    "health": "ਸਿਹਤ",
+    "firstAid": "ਪਹਿਲੀ ਸਹਾਇਤਾ",
+    "fireSafety": "ਅੱਗ ਸੁਰੱਖਿਆ",
+    "disasterHelp": "ਆਫ਼ਤ ਸਹਾਇਤਾ",
+    "awareness": "ਜਾਗਰੂਕਤਾ",
+    "settings": "ਸੈਟਿੰਗਾਂ",
+    "syncStatus": "ਸਿੰਕ ਸਥਿਤੀ"
+  },
+  "category": {
+    "selectTopic": "ਇੱਕ ਵਿਸ਼ਾ ਚੁਣੋ",
+    "speak": "ਬੋਲੋ",
+    "type": "ਟਾਈਪ ਕਰੋ",
+    "or": "ਜਾਂ",
+    "speakButton": "ਬੋਲਣ ਲਈ ਟੈਪ ਕਰੋ",
+    "typePlaceholder": "ਆਪਣਾ ਸਵਾਲ ਇੱਥੇ ਟਾਈਪ ਕਰੋ..."
+  },
+  "voice": {
+    "listening": "ਸੁਣ ਰਿਹਾ ਹੈ...",
+    "speakNow": "ਹੁਣ ਬੋਲੋ",
+    "processing": "ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ...",
+    "stop": "ਰੋਕੋ",
+    "tryAgain": "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+  },
+  "result": {
+    "title": "ਇੱਥੇ ਉਹ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਜਾਣਨਾ ਚਾਹੀਦਾ ਹੈ",
+    "step": "ਕਦਮ",
+    "playAudio": "ਆਡੀਓ ਚਲਾਓ",
+    "stopAudio": "ਆਡੀਓ ਰੋਕੋ",
+    "back": "ਪਿੱਛੇ",
+    "nextStep": "ਅਗਲਾ ਕਦਮ",
+    "previousStep": "ਪਿਛਲਾ ਕਦਮ"
+  },
+  "settings": {
+    "title": "ਸੈਟਿੰਗਾਂ",
+    "accessibility": "ਪਹੁੰਚ",
+    "fontSize": "ਫੌਂਟ ਸਾਈਜ਼",
+    "small": "ਛੋਟਾ",
+    "medium": "ਮੱਧਮ",
+    "large": "ਵੱਡਾ",
+    "extraLarge": "ਬਹੁਤ ਵੱਡਾ",
+    "highContrast": "ਉੱਚ ਕੰਟਰਾਸਟ ਮੋਡ",
+    "voiceOnly": "ਸਿਰਫ਼ ਆਵਾਜ਼ ਮੋਡ",
+    "language": "ਭਾਸ਼ਾ",
+    "back": "ਪਿੱਛੇ"
+  },
+  "sync": {
+    "title": "ਆਫਲਾਈਨ ਸਿੰਕ ਸਥਿਤੀ",
+    "status": "ਸਥਿਤੀ",
+    "synced": "ਸਿੰਕ ਹੋ ਗਿਆ",
+    "syncing": "ਸਿੰਕ ਹੋ ਰਿਹਾ ਹੈ...",
+    "lastSync": "ਆਖਰੀ ਸਿੰਕ",
+    "never": "ਕਦੇ ਨਹੀਂ",
+    "syncNow": "ਹੁਣ ਸਿੰਕ ਕਰੋ",
+    "back": "ਪਿੱਛੇ"
+  },
+  "common": {
+    "back": "ਪਿੱਛੇ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "ok": "ਠੀਕ ਹੈ",
+    "yes": "ਹਾਂ",
+    "no": "ਨਹੀਂ",
+    "close": "ਬੰਦ ਕਰੋ"
+  }
+}
+

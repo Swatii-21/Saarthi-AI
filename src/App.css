@@ -1,0 +1,70 @@
+.App {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* High contrast mode */
+.high-contrast {
+  --text-dark: #000000;
+  --text-light: #FFFFFF;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --shadow-hover: rgba(0, 0, 0, 0.7);
+}
+
+.high-contrast * {
+  border-color: var(--text-dark) !important;
+}
+
+/* Voice only mode */
+.voice-only .card,
+.voice-only .btn {
+  border: 3px solid var(--text-dark);
+}
+
+/* Accessibility improvements */
+*:focus {
+  outline: 3px solid var(--sky-blue);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--sky-blue);
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

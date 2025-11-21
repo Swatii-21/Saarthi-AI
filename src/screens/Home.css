@@ -1,0 +1,129 @@
+.home {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-green) 100%);
+  padding-bottom: 100px;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+.home-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.home-subtitle {
+  font-size: 1.125rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.offline-indicator {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+}
+
+.home-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.home-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--clean-white);
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  box-shadow: 0 -4px 6px var(--shadow);
+  z-index: 100;
+}
+
+.footer-button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: var(--sky-blue);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 48px;
+}
+
+.footer-button:hover {
+  background: #6BB6D6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-hover);
+}
+
+.footer-button:focus {
+  outline: 3px solid var(--text-dark);
+  outline-offset: 2px;
+}
+
+.footer-button:active {
+  transform: translateY(0);
+}
+
+/* Font sizes */
+.home-font-small .home-title {
+  font-size: 1.75rem;
+}
+
+.home-font-small .home-subtitle {
+  font-size: 1rem;
+}
+
+.home-font-medium .home-title {
+  font-size: 2rem;
+}
+
+.home-font-medium .home-subtitle {
+  font-size: 1.125rem;
+}
+
+.home-font-large .home-title {
+  font-size: 2.5rem;
+}
+
+.home-font-large .home-subtitle {
+  font-size: 1.375rem;
+}
+
+.home-font-extraLarge .home-title {
+  font-size: 3rem;
+}
+
+.home-font-extraLarge .home-subtitle {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .home-categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .home-footer {
+    flex-direction: column;
+  }
+}
+

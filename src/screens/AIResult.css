@@ -1,0 +1,148 @@
+.ai-result {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-green) 100%);
+}
+
+.ai-result-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+  min-height: 48px;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.back-button:focus {
+  outline: 3px solid var(--text-light);
+  outline-offset: 2px;
+}
+
+.result-title {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.step-indicator {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.step-content {
+  background: var(--clean-white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 16px var(--shadow);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--sky-blue);
+  color: var(--text-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-text {
+  flex: 1;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.result-actions {
+  margin-bottom: 2rem;
+}
+
+.step-navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+.step-navigation .btn {
+  flex: 1;
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  padding: 4rem 0;
+}
+
+/* Font sizes */
+.ai-result-font-small .result-title {
+  font-size: 1.75rem;
+}
+
+.ai-result-font-small .step-text {
+  font-size: 1rem;
+}
+
+.ai-result-font-medium .result-title {
+  font-size: 2rem;
+}
+
+.ai-result-font-medium .step-text {
+  font-size: 1.125rem;
+}
+
+.ai-result-font-large .result-title {
+  font-size: 2.5rem;
+}
+
+.ai-result-font-large .step-text {
+  font-size: 1.375rem;
+}
+
+.ai-result-font-extraLarge .result-title {
+  font-size: 3rem;
+}
+
+.ai-result-font-extraLarge .step-text {
+  font-size: 1.625rem;
+}
+
+@media (max-width: 768px) {
+  .step-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-number {
+    margin: 0 auto;
+  }
+}
+

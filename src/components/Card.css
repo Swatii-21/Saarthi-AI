@@ -1,0 +1,93 @@
+.card {
+  background: var(--clean-white);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.card-clickable {
+  cursor: pointer;
+}
+
+.card-clickable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--shadow-hover);
+}
+
+.card-clickable:focus {
+  outline: 3px solid var(--sky-blue);
+  outline-offset: 2px;
+}
+
+.card-clickable:active {
+  transform: translateY(-2px);
+}
+
+.card-high-contrast {
+  border: 2px solid var(--text-dark);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-content {
+  width: 100%;
+}
+
+.card-title {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.card-subtitle {
+  margin: 0.5rem 0 0 0;
+  color: var(--text-dark);
+  opacity: 0.8;
+}
+
+.card-body {
+  width: 100%;
+}
+
+/* Font sizes */
+.card-font-small .card-title {
+  font-size: 1rem;
+}
+
+.card-font-small .card-subtitle {
+  font-size: 0.875rem;
+}
+
+.card-font-medium .card-title {
+  font-size: 1.125rem;
+}
+
+.card-font-medium .card-subtitle {
+  font-size: 1rem;
+}
+
+.card-font-large .card-title {
+  font-size: 1.375rem;
+}
+
+.card-font-large .card-subtitle {
+  font-size: 1.125rem;
+}
+
+.card-font-extraLarge .card-title {
+  font-size: 1.625rem;
+}
+
+.card-font-extraLarge .card-subtitle {
+  font-size: 1.375rem;
+}
+

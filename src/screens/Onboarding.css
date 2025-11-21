@@ -1,0 +1,134 @@
+.onboarding {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-green) 100%);
+  padding: 2rem;
+}
+
+.onboarding-content {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  color: var(--text-light);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.onboarding-step {
+  margin-bottom: 3rem;
+}
+
+.step-icon {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.step-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.step-description {
+  font-size: 1.125rem;
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.onboarding-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: var(--transition);
+}
+
+.indicator.active {
+  background: var(--clean-white);
+  width: 32px;
+  border-radius: 6px;
+}
+
+.onboarding-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.onboarding-actions .btn {
+  flex: 1;
+  max-width: 200px;
+}
+
+/* Font sizes */
+.onboarding-font-small .step-title {
+  font-size: 1.75rem;
+}
+
+.onboarding-font-small .step-description {
+  font-size: 1rem;
+}
+
+.onboarding-font-medium .step-title {
+  font-size: 2rem;
+}
+
+.onboarding-font-medium .step-description {
+  font-size: 1.125rem;
+}
+
+.onboarding-font-large .step-title {
+  font-size: 2.5rem;
+}
+
+.onboarding-font-large .step-description {
+  font-size: 1.375rem;
+}
+
+.onboarding-font-extraLarge .step-title {
+  font-size: 3rem;
+}
+
+.onboarding-font-extraLarge .step-description {
+  font-size: 1.625rem;
+}
+
+@media (max-width: 768px) {
+  .onboarding-actions {
+    flex-direction: column;
+  }
+
+  .onboarding-actions .btn {
+    max-width: 100%;
+  }
+}
+

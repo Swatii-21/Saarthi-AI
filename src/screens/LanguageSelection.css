@@ -1,0 +1,62 @@
+.language-selection {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-green) 100%);
+}
+
+.language-selection-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.language-selection-title {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card-selected {
+  background: var(--wheat-yellow);
+  border: 3px solid var(--text-dark);
+  transform: scale(1.05);
+}
+
+.language-selection-actions {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Font sizes */
+.language-selection-font-small .language-selection-title {
+  font-size: 1.75rem;
+}
+
+.language-selection-font-medium .language-selection-title {
+  font-size: 2rem;
+}
+
+.language-selection-font-large .language-selection-title {
+  font-size: 2.5rem;
+}
+
+.language-selection-font-extraLarge .language-selection-title {
+  font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  .language-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+}
+
