@@ -13,10 +13,10 @@ const AIResult = () => {
   const location = useLocation();
   const { t, language } = useLanguage();
   const { fontSize } = useApp();
+
   const [result, setResult] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const utteranceRef = React.useRef(null);
 
   useEffect(() => {
     const query = location.state?.query || '';
@@ -25,9 +25,7 @@ const AIResult = () => {
   }, [category, location.state]);
 
   useEffect(() => {
-    return () => {
-      stopSpeaking();
-    };
+    return () => stopSpeaking();
   }, []);
 
   const handlePlayAudio = () => {
@@ -41,26 +39,27 @@ const AIResult = () => {
 
     const stepText = result.steps[currentStep];
     const fullText = `${result.title}. ${t('result.step')} ${currentStep + 1}: ${stepText}`;
-    
-    utteranceRef.current = speakText(fullText, language, () => {
+
+    speakText(fullText, language, () => {
       setIsPlaying(false);
     });
+
     setIsPlaying(true);
   };
 
   const handleNextStep = () => {
-    if (result && currentStep < result.steps.length - 1) {
-      setCurrentStep(currentStep + 1);
+    if (currentStep < result.steps.length - 1) {
       stopSpeaking();
       setIsPlaying(false);
+      setCurrentStep(currentStep + 1);
     }
   };
 
   const handlePreviousStep = () => {
     if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
       stopSpeaking();
       setIsPlaying(false);
+      setCurrentStep(currentStep - 1);
     }
   };
 
@@ -70,21 +69,13 @@ const AIResult = () => {
   };
 
   if (!result) {
-    return (
-      <div className="ai-result">
-        <div className="loading">Loading...</div>
-      </div>
-    );
+    return <div className="ai-result"><div className="loading">Loading...</div></div>;
   }
 
   return (
     <div className={`ai-result ai-result-font-${fontSize}`}>
       <div className="ai-result-content">
-        <button
-          className="back-button"
-          onClick={handleBack}
-          aria-label={t('common.back')}
-        >
+        <button className="back-button" onClick={handleBack}>
           ← {t('common.back')}
         </button>
 
@@ -99,41 +90,28 @@ const AIResult = () => {
           <p className="step-text">{result.steps[currentStep]}</p>
         </div>
 
-        <div className="result-actions">
-          <Button
-            variant={isPlaying ? 'secondary' : 'primary'}
-            size="large"
-            onClick={handlePlayAudio}
-            icon={isPlaying ? '⏹️' : '🔊'}
-            fullWidth
-            ariaLabel={isPlaying ? t('result.stopAudio') : t('result.playAudio')}
-          >
-            {isPlaying ? t('result.stopAudio') : t('result.playAudio')}
-          </Button>
-        </div>
+        <Button
+          variant={isPlaying ? "secondary" : "primary"}
+          size="large"
+          onClick={handlePlayAudio}
+          icon={isPlaying ? "⏹️" : "🔊"}
+          fullWidth
+        >
+          {isPlaying ? t('result.stopAudio') : t('result.playAudio')}
+        </Button>
 
         <div className="step-navigation">
-          <Button
-            variant="outline"
-            onClick={handlePreviousStep}
-            disabled={currentStep === 0}
-            ariaLabel={t('result.previousStep')}
-          >
+          <Button variant="outline" onClick={handlePreviousStep} disabled={currentStep === 0}>
             ← {t('result.previousStep')}
           </Button>
-          <Button
-            variant="primary"
-            onClick={handleNextStep}
-            disabled={currentStep === result.steps.length - 1}
-            ariaLabel={t('result.nextStep')}
-          >
+          <Button variant="primary" onClick={handleNextStep} disabled={currentStep === result.steps.length - 1}>
             {t('result.nextStep')} →
           </Button>
         </div>
+
       </div>
     </div>
   );
 };
 
 export default AIResult;
-

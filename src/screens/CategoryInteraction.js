@@ -2,86 +2,88 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useApp } from '../context/AppContext';
+import { recordAndTranscribe } from '../utils/voiceUtils';
 import Button from '../components/Button';
 import './CategoryInteraction.css';
 
 const CategoryInteraction = () => {
   const navigate = useNavigate();
   const { category } = useParams();
-  const { t, language } = useLanguage();
-  const { fontSize, voiceOnly } = useApp();
-  const [inputText, setInputText] = useState('');
+  const { t } = useLanguage();
+  const { fontSize } = useApp();
 
-  const handleSpeak = () => {
-    navigate(`/voice/${category}`);
+  const [inputText, setInputText] = useState('');
+  const [isListening, setIsListening] = useState(false);
+
+  const toggleVoiceInput = () => {
+    if (!isListening) {
+      setIsListening(true);
+
+      recordAndTranscribe(
+        (text) => {
+          setInputText(prev => (prev + " " + text).trim());
+          setIsListening(false);
+        },
+        (error) => {
+          console.error("Transcription Error:", error);
+          alert("Voice input failed. Try again!");
+          setIsListening(false);
+        },
+        4000 // 4 sec voice input
+      );
+    } else {
+      setIsListening(false);
+    }
   };
 
-  const handleType = () => {
+  const handleContinue = () => {
     if (inputText.trim()) {
       navigate(`/result/${category}`, { state: { query: inputText } });
     }
   };
 
-  const handleBack = () => {
-    navigate('/home');
-  };
+  const handleBack = () => navigate('/home');
 
   return (
     <div className={`category-interaction category-interaction-font-${fontSize}`}>
       <div className="category-interaction-content">
-        <button
-          className="back-button"
-          onClick={handleBack}
-          aria-label={t('common.back')}
-        >
+        <button className="back-button" onClick={handleBack}>
           ← {t('common.back')}
         </button>
 
-        <h1 className="category-interaction-title">{t('category.selectTopic')}</h1>
+        <h1 className="category-interaction-title">{category}</h1>
 
-        <div className="interaction-options">
-          <div className="speak-option">
-            <Button
-              variant="primary"
-              size="extra-large"
-              onClick={handleSpeak}
-              icon="🎤"
-              fullWidth
-              ariaLabel={t('category.speakButton')}
-            >
-              {t('category.speak')}
-            </Button>
-          </div>
+        <textarea
+          className="type-input"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          placeholder={t('interaction.placeholder')}
+          rows={5}
+        />
 
-          <div className="divider">
-            <span>{t('category.or')}</span>
-          </div>
+        <Button
+          variant={isListening ? "secondary" : "primary"}
+          size="large"
+          onClick={toggleVoiceInput}
+          icon={isListening ? "🛑" : "🎤"}
+          fullWidth
+        >
+          {isListening ? t('interaction.stopListening') : t('interaction.speak')}
+        </Button>
 
-          <div className="type-option">
-            <textarea
-              className="type-input"
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              placeholder={t('category.typePlaceholder')}
-              rows={4}
-              aria-label={t('category.typePlaceholder')}
-            />
-            <Button
-              variant="secondary"
-              size="large"
-              onClick={handleType}
-              disabled={!inputText.trim()}
-              fullWidth
-              ariaLabel={t('category.type')}
-            >
-              {t('category.type')}
-            </Button>
-          </div>
-        </div>
+        <Button
+          variant="primary"
+          size="large"
+          onClick={handleContinue}
+          disabled={!inputText.trim()}
+          fullWidth
+        >
+          {t('interaction.continue')} →
+        </Button>
+
       </div>
     </div>
   );
 };
 
 export default CategoryInteraction;
-

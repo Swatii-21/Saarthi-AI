@@ -1,60 +1,77 @@
-// Voice utilities for speech-to-text and text-to-speech
+// src/utils/voiceUtils.js
 
+// Convert language code for TTS
 export const getLanguageCode = (language) => {
   const languageMap = {
-    en: 'en-US',
-    hi: 'hi-IN',
-    mr: 'mr-IN',
-    te: 'te-IN',
-    ta: 'ta-IN',
-    kn: 'kn-IN',
-    gu: 'gu-IN',
-    bn: 'bn-IN',
-    pa: 'pa-IN',
-    ml: 'ml-IN',
+    en: "en-US",
+    hi: "hi-IN",
+    mr: "mr-IN",
+    te: "te-IN",
+    ta: "ta-IN",
+    kn: "kn-IN",
+    gu: "gu-IN",
+    bn: "bn-IN",
+    pa: "pa-IN",
+    ml: "ml-IN",
   };
-  return languageMap[language] || 'en-US';
+  return languageMap[language] || "en-US";
 };
 
-export const startSpeechRecognition = (language, onResult, onError) => {
-  if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-    onError('Speech recognition not supported in this browser');
-    return null;
+// --------------------------------------
+// Whisper Backend STT Recorder + Sender
+// --------------------------------------
+export const recordAndTranscribe = async (onResult, onError, duration = 5000) => {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+    const mediaRecorder = new MediaRecorder(stream, {
+      mimeType: "audio/webm;codecs=opus", // FIXED
+    });
+
+    const audioChunks = [];
+
+    mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+    mediaRecorder.start();
+
+    setTimeout(() => mediaRecorder.stop(), duration);
+
+    mediaRecorder.onstop = async () => {
+      const audioBlob = new Blob(audioChunks, { type: "audio/webm;codecs=opus" });
+
+      const formData = new FormData();
+      formData.append("audio", audioBlob, "voice.webm");
+
+      try {
+        const response = await fetch("http://localhost:8000/transcribe", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        console.log("📩 Server Response:", data);
+
+        if (data.text && data.text.trim() !== "")
+          onResult(data.text);
+        else
+          onError("No transcription received");
+      } catch (err) {
+        console.error("❌ Fetch Error:", err);
+        onError(err.message);
+      }
+    };
+  } catch (err) {
+    console.error("🎤 Mic Error:", err);
+    onError(err.message);
   }
-
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SpeechRecognition();
-  
-  recognition.lang = getLanguageCode(language);
-  recognition.continuous = false;
-  recognition.interimResults = false;
-
-  recognition.onresult = (event) => {
-    const transcript = event.results[0][0].transcript;
-    onResult(transcript);
-  };
-
-  recognition.onerror = (event) => {
-    onError(event.error);
-  };
-
-  recognition.start();
-  return recognition;
 };
 
-export const stopSpeechRecognition = (recognition) => {
-  if (recognition) {
-    recognition.stop();
-  }
-};
-
+// --------------------------------------
+// Text to Speech
+// --------------------------------------
 export const speakText = (text, language, onEnd) => {
-  if (!('speechSynthesis' in window)) {
-    console.warn('Text-to-speech not supported in this browser');
-    return null;
-  }
+  if (!("speechSynthesis" in window)) return null;
 
-  // Cancel any ongoing speech
   window.speechSynthesis.cancel();
 
   const utterance = new SpeechSynthesisUtterance(text);
@@ -63,24 +80,28 @@ export const speakText = (text, language, onEnd) => {
   utterance.pitch = 1;
   utterance.volume = 1;
 
-  if (onEnd) {
-    utterance.onend = onEnd;
-  }
+  if (onEnd) utterance.onend = onEnd;
 
   window.speechSynthesis.speak(utterance);
   return utterance;
 };
 
+// --------------------------------------
+// Stop TTS
+// --------------------------------------
 export const stopSpeaking = () => {
-  if ('speechSynthesis' in window) {
+  if ("speechSynthesis" in window) {
     window.speechSynthesis.cancel();
   }
 };
 
+// --------------------------------------
+// Check voice availability
+// --------------------------------------
 export const isVoiceSupported = () => {
   return (
-    ('speechSynthesis' in window) &&
-    (('webkitSpeechRecognition' in window) || ('SpeechRecognition' in window))
+    "speechSynthesis" in window &&
+    navigator.mediaDevices &&
+    navigator.mediaDevices.getUserMedia
   );
 };
-

@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useApp } from '../context/AppContext';
-import { startSpeechRecognition, stopSpeechRecognition } from '../utils/voiceUtils';
+import { recordAndTranscribe } from '../utils/voiceUtils';
+
 import Button from '../components/Button';
 import './VoiceListening.css';
 
@@ -14,44 +15,37 @@ const VoiceListening = () => {
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [error, setError] = useState('');
-  const recognitionRef = useRef(null);
 
   useEffect(() => {
     startListening();
-    return () => {
-      if (recognitionRef.current) {
-        stopSpeechRecognition(recognitionRef.current);
-      }
-    };
   }, []);
 
-  const startListening = () => {
+  const startListening = async () => {
     setIsListening(true);
     setError('');
     setTranscript('');
 
-    recognitionRef.current = startSpeechRecognition(
-      language,
+    recordAndTranscribe(
       (result) => {
         setTranscript(result);
         setIsListening(false);
-        // Navigate to result screen after getting transcript
+
+        // Navigate to result page
         setTimeout(() => {
           navigate(`/result/${category}`, { state: { query: result } });
-        }, 500);
+        }, 600);
       },
       (err) => {
         setError(err);
         setIsListening(false);
-      }
+      },
+      5000 // duration for recording
     );
   };
 
   const stopListening = () => {
-    if (recognitionRef.current) {
-      stopSpeechRecognition(recognitionRef.current);
-      setIsListening(false);
-    }
+    // Whisper style recording auto-stops after duration
+    setIsListening(false);
   };
 
   const handleBack = () => {
@@ -62,21 +56,16 @@ const VoiceListening = () => {
   return (
     <div className={`voice-listening voice-listening-font-${fontSize}`}>
       <div className="voice-listening-content">
-        <button
-          className="back-button"
-          onClick={handleBack}
-          aria-label={t('common.back')}
-        >
+        <button className="back-button" onClick={handleBack}>
           ← {t('common.back')}
         </button>
 
         <div className="voice-listening-main">
           <div className={`mic-container ${isListening ? 'listening' : ''}`}>
-            <div className="mic-icon" aria-hidden="true">
-              🎤
-            </div>
+            <div className="mic-icon">🎤</div>
+
             {isListening && (
-              <div className="listening-animation" aria-hidden="true">
+              <div className="listening-animation">
                 <div className="wave wave1"></div>
                 <div className="wave wave2"></div>
                 <div className="wave wave3"></div>
@@ -88,39 +77,16 @@ const VoiceListening = () => {
             {isListening ? t('voice.listening') : t('voice.speakNow')}
           </h2>
 
-          {transcript && (
-            <div className="transcript">
-              <p>{transcript}</p>
-            </div>
-          )}
-
-          {error && (
-            <div className="error-message" role="alert">
-              {error}
-            </div>
-          )}
+          {transcript && <div className="transcript"><p>{transcript}</p></div>}
+          {error && <div className="error-message">{error}</div>}
 
           <div className="voice-actions">
             {isListening ? (
-              <Button
-                variant="secondary"
-                size="large"
-                onClick={stopListening}
-                icon="⏹️"
-                fullWidth
-                ariaLabel={t('voice.stop')}
-              >
+              <Button variant="secondary" size="large" onClick={stopListening} icon="⏹️" fullWidth>
                 {t('voice.stop')}
               </Button>
             ) : (
-              <Button
-                variant="primary"
-                size="large"
-                onClick={startListening}
-                icon="🎤"
-                fullWidth
-                ariaLabel={t('voice.speakNow')}
-              >
+              <Button variant="primary" size="large" onClick={startListening} icon="🎤" fullWidth>
                 {t('voice.tryAgain')}
               </Button>
             )}
@@ -132,4 +98,3 @@ const VoiceListening = () => {
 };
 
 export default VoiceListening;
-
