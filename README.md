@@ -1,6 +1,7 @@
 # SaarthiAI
 
-An offline multilingual AI emergency and awareness assistant designed for rural and low-literacy users.
+SaarthiAI is an offline, multilingual, voice-enabled emergency and awareness assistant designed especially for rural and low-literacy users.
+It provides step-by-step guidance, speech input, speech output, and a warm, friendly, accessible UI — all fully available without internet.
 
 ## Features
 
@@ -55,18 +56,30 @@ npm run build
 
 ```
 saarthi-ai/
+├── backend/
+│   ├── app.py                 # Main FastAPI/Flask app
+│   ├── requirements.txt       # Backend dependencies
+│   ├── models/                # Offline AI models
+│   ├── database/              # Local DB / JSON storage
+│   ├── utils/                 # Helper functions
+│   ├── routes/                # API routes
+│   └── services/              # Core logic (NLP, TTS, STT)
+│
 ├── public/
 │   ├── index.html
 │   └── manifest.json
+│
 ├── src/
-│   ├── components/       # Reusable UI components
-│   ├── context/          # React Context providers
-│   ├── screens/          # Screen components
-│   ├── translations/     # Language JSON files
-│   ├── utils/            # Utility functions
-│   ├── App.js            # Main app component
-│   └── index.js          # Entry point
+│   ├── components/            # Reusable UI components
+│   ├── context/               # React Context providers
+│   ├── screens/               # App screens
+│   ├── translations/          # Language JSON files
+│   ├── utils/                 # Utility functions
+│   ├── App.js                 # Main app component
+│   └── index.js               # Entry point
+│
 └── package.json
+
 ```
 
 ## Accessibility Features
