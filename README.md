@@ -103,4 +103,34 @@ Note: Voice features require browser support for Web Speech API.
 ## License
 
 MIT
+🔧 Backend Setup
+1️⃣ Activate Virtual Environment
+venv\Scripts\activate
+
+2️⃣ Setup FFmpeg (required for Whisper)
+
+Make sure FFmpeg is installed and added to PATH:
+
+set PATH=D:\download_material\ffmpeg-8.0.1-essentials_build\ffmpeg-8.0.1-essentials_build\bin;%PATH%
+ffmpeg -version
+
+3️⃣ Run Backend Server
+python server.py
+
+🎨 Frontend Setup
+1️⃣ Install Dependencies
+npm install
+
+2️⃣ Start React App
+npm start
+
+📦 Backend Dependencies (Install One Time Only)
+
+Run these once inside your backend environment:
+
+pip install fastapi
+pip install uvicorn[standard]
+pip install python-multipart
+pip install aiofiles
+pip install whisper
 
