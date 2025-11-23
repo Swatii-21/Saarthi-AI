@@ -107,15 +107,13 @@ MIT
 ## 🖥️ Backend Setup
 ### Install Backend Dependencies(Only One Time)
 ```bash
-npm run build
-```
-
 pip install fastapi
 pip install uvicorn[standard]
 pip install python-multipart
 pip install aiofiles
 pip install whisper
 
+```
 
 ### Activate Virtual Environment
 ```bash
