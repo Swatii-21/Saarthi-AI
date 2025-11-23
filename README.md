@@ -106,6 +106,7 @@ MIT
 
 ## 🖥️ Backend Setup
 ### Install Backend Dependencies(Only One Time)
+```bash
 pip install fastapi
 pip install uvicorn[standard]
 pip install python-multipart
