@@ -103,6 +103,7 @@ Note: Voice features require browser support for Web Speech API.
 ## License
 
 MIT
+
 🔧 Backend Setup
 1️⃣ Activate Virtual Environment
 venv\Scripts\activate
