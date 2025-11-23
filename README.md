@@ -106,13 +106,16 @@ MIT
 
 ## 🖥️ Backend Setup
 ### Install Backend Dependencies(Only One Time)
+```bash
+npm run build
 ```
+
 pip install fastapi
 pip install uvicorn[standard]
 pip install python-multipart
 pip install aiofiles
 pip install whisper
-```
+
 
 ### Activate Virtual Environment
 ```bash
@@ -120,6 +123,7 @@ venv\Scripts\activate
 set PATH=D:\download_material\ffmpeg-8.0.1-essentials_build\ffmpeg-8.0.1-essentials_build\bin;%PATH%
 ffmpeg -version
 python server.py
+```
 
 
 
