@@ -105,6 +105,7 @@ Note: Voice features require browser support for Web Speech API.
 MIT
 
 🔧 Backend Setup
+\
 1️⃣ Activate Virtual Environment
 venv\Scripts\activate
 
@@ -117,13 +118,6 @@ ffmpeg -version
 
 3️⃣ Run Backend Server
 python server.py
-
-🎨 Frontend Setup
-1️⃣ Install Dependencies
-npm install
-
-2️⃣ Start React App
-npm start
 
 📦 Backend Dependencies (Install One Time Only)
 
