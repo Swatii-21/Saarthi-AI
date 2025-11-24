@@ -2,7 +2,7 @@
 
 **Saarthi AI** is an offline, multilingual, voice-enabled emergency and awareness assistant designed especially for rural and low-literacy users. It provides step-by-step guidance, speech input, speech output, and a warm, friendly, accessible UI — all fully available without internet.
 
-## 🌟 Features
+## Features
 
 - 🌐 **Multilingual Support**: Available in 10 languages (English, Hindi, Marathi, Telugu, Tamil, Kannada, Gujarati, Bengali, Punjabi, Malayalam)
 - 📱 **Mobile-First Design**: Responsive, touch-friendly interface optimized for mobile devices
@@ -12,7 +12,7 @@
 - 🎨 **Warm & Empathetic UI**: Soft colors, rounded cards, large icons, and friendly design
 - 🚨 **Emergency Categories**: Health, First Aid, Fire Safety, Disaster Help, and Awareness
 
-## 📱 Screens
+## Screens
 
 1. **Splash Screen**: Initial loading screen
 2. **Onboarding**: Introduction to the app
@@ -24,7 +24,7 @@
 8. **Settings**: Accessibility and language preferences
 9. **Sync Status**: Offline sync information
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 - **React 18** - UI framework
@@ -39,7 +39,7 @@
 - **Uvicorn** - ASGI server
 - **FFmpeg** - Audio processing
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Node.js** (v14 or higher)
 - **npm** or **yarn**
@@ -47,7 +47,7 @@
 - **pip**
 - **FFmpeg** (for audio processing)
 
-## 🚀 Installation
+## Installation
 
 ### Frontend Setup
 
@@ -99,7 +99,7 @@ pip install -r requirements.txt
    - **macOS**: `brew install ffmpeg`
    - **Linux**: `sudo apt-get install ffmpeg` or `sudo yum install ffmpeg`
 
-## ▶️ Running the Application
+## Running the Application
 
 ### Start Backend Server
 
@@ -146,7 +146,7 @@ npm start
 
 The app will open at `http://localhost:3000`
 
-## 🏗️ Building for Production
+## Building for Production
 
 ### Frontend Build
 
@@ -217,7 +217,7 @@ Saarthi-AI/
 └── README.md                 # This file
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Backend API (FastAPI)
 
@@ -233,7 +233,7 @@ Saarthi-AI/
       -F "audio=@voice.webm"
     ```
 
-## ⚙️ Configuration
+## Configuration
 
 ### Backend Configuration
 
@@ -250,7 +250,7 @@ In `backend/server.py`, you can configure:
 - **Language Support**: Add new languages by creating JSON files in `src/translations/`
 - **Offline Responses**: Extend offline AI responses in `src/utils/aiUtils.js`
 
-## ♿ Accessibility Features
+## Accessibility Features
 
 - **Adjustable Font Sizes**: Small, Medium, Large, Extra Large
 - **High Contrast Mode**: Enhanced visibility for low vision users
@@ -260,7 +260,7 @@ In `backend/server.py`, you can configure:
 - **Keyboard Navigation**: Full keyboard accessibility
 - **Text-to-Speech**: All content can be read aloud
 
-## 🌐 Browser Support
+## Browser Support
 
 - **Chrome/Edge** (recommended for voice features)
 - **Firefox**
@@ -272,7 +272,7 @@ In `backend/server.py`, you can configure:
 - MediaRecorder API (for voice recording)
 - getUserMedia API (for microphone access)
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Backend Issues
 
@@ -302,26 +302,16 @@ In `backend/server.py`, you can configure:
    - Check browser support for Web Speech API
    - Try a different browser (Chrome recommended)
 
-## 📝 Development Notes
+## Development Notes
 
 - The app uses offline-first architecture with predefined responses
 - Whisper model is loaded once at server startup for efficiency
 - Audio files are temporarily stored during transcription
 - All translations are stored in JSON files for easy updates
 - LocalStorage is used for persisting user preferences
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
+ 
+## License
 
 MIT
-
-## 👥 Authors
-
-Saarthi AI Development Team
-
----
 
 **Made with ❤️ for rural and low-literacy communities**
